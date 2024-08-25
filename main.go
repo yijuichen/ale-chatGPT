@@ -1,17 +1,18 @@
 package main
 
 import (
+	"ale-chatGPT/cmd"
 	"bufio"
 	"context"
 	"errors"
 	"fmt"
+	_ "github.com/joho/godotenv/autoload"
+	openai "github.com/sashabaranov/go-openai"
+	"github.com/spf13/cobra"
 	"io"
 	"log"
 	"os"
 	"strings"
-
-	openai "github.com/sashabaranov/go-openai"
-	"github.com/spf13/cobra"
 )
 
 func GetResponse(client *openai.Client, ctx context.Context, promptStr string) {
@@ -53,6 +54,11 @@ type NullWriter int
 func (NullWriter) Write([]byte) (int, error) { return 0, nil }
 
 func main() {
+	cmd.Execute()
+}
+
+func main2() {
+
 	log.SetOutput(new(NullWriter))
 	apiKey := os.Getenv("API_KEY")
 	if apiKey == "" {
