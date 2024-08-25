@@ -13,7 +13,7 @@ This is a Command Line Interface (CLI) tool that interacts with OpenAI's API to 
       git clone https://github.com/your-username/your-repo-name.git
       cd your-repo-name
    ```
-2.  **Build the application**:
+2. **Build the application**:
    ```bash
       go build -o gpt-cli
    ```
